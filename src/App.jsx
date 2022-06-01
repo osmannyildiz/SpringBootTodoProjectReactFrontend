@@ -1,10 +1,13 @@
 import "./App.css";
+import MainLayout from "./layouts/MainLayout";
+import TodosPage from "./pages/TodosPage";
 
 function App() {
 	return (
-		<div className="App">
-			<h1>Hello Appcent!</h1>
-		</div>
+		<MainLayout>
+			{/* TODO Add routing */}
+			<TodosPage />
+		</MainLayout>
 	);
 }
 
