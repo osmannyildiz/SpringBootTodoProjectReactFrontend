@@ -1,10 +1,18 @@
-import React, { useContext } from "react";
+import React, { useEffect, useState } from "react";
 import TodoQuickAddForm from "../components/form/TodoQuickAddForm";
 import TodoList from "../components/TodoList";
-import { TodosContext } from "../contexts";
+import TodoService from "../services/todoService";
 
 function TodosPage() {
-	const { todos } = useContext(TodosContext);
+	const [todos, setTodos] = useState([]);
+
+	useEffect(() => {
+		(async () => {
+			const resp = await TodoService.getAll();
+			const todos = resp.data;
+			setTodos(todos);
+		})();
+	}, []);
 
 	return (
 		<React.Fragment>
