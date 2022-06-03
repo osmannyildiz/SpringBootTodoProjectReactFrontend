@@ -1,5 +1,13 @@
-function TodoList(props) {
-	return <div>TodoList</div>;
+import TodoListItem from "./TodoListItem";
+
+function TodoList({ todos }) {
+	return (
+		<ul>
+			{todos.map((todo, idx) => (
+				<TodoListItem todo={todo} key={idx} />
+			))}
+		</ul>
+	);
 }
 
 export default TodoList;
